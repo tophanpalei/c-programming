@@ -7,20 +7,21 @@ int selectionSort(int a[],int n)
 	j=smallest(a,i,n);
 	interchange(a,i,j);
 	}
+		
 }
 int smallest(int a[],int i,int n)
 {
 	int min,j;
-	min=a[i];
-	int index=i;
+	min=i;
 	for(j=i+1;j<n;j++)
 	{
-		if(a[j]<min)
+		if(a[j]<a[min])
 		{
-			min=a[j];
+			min=j;
 		}
+				
 	}
-	return index;
+	return min ;
 }
 int interchange(int a[],int i,int j)
 {
@@ -28,15 +29,6 @@ int interchange(int a[],int i,int j)
 	temp=a[i];
 	a[i]=a[j];
 	a[j]=temp;
-}
-int printarray(int a[],int n)
-{
-	int k;
-	printf("the sorted array elements is:");
-	for(k=0;k<n;k++)
-	{
-		printf("%d  ",a[k]);
-	}
 }
 int main()
 {
@@ -51,7 +43,14 @@ int main()
 		scanf("%d",&a[i]);
 	}
 	selectionSort(a,n);
-	printarray(a,n);
+	
 
+	int k;
+	printf("the sorted array elements is:");
+	for(k=0;k<n;k++)
+	{
+		printf("%d  ",a[k]);
+	}
 	return 0;
 }
+	
